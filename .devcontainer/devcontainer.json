@@ -1,0 +1,29 @@
+{
+  // 這個開發容器的名稱，顯示在 Codespaces 介面上
+  "name": "AI Coding W1",
+
+  // 統一的基礎環境：Microsoft 官方的 Node.js 20 開發映像檔
+  // 🎯 全班同一個 Node 版本，杜絕「版本不一樣跑不起來」
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+
+  "customizations": {
+    "vscode": {
+      // 開 Codespaces 時自動安裝這些 VS Code 擴充套件
+      // 🎯 學生免手動安裝，一進來 Copilot 補全就能用
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      // 預設關閉 agent、只留 inline 補全（符合「學會不學廢」）
+      // 📝 這是建議預設；保險起見上課時 C3 會再確認一次
+      "settings": {
+        "github.copilot.chat.agent.enabled": false,
+        "editor.inlineSuggest.enabled": true
+      }
+    }
+  },
+
+  // 容器建立完成後自動執行的指令：安裝專案相依套件
+  // 🎯 學生免在終端機手動 npm install
+  "postCreateCommand": "npm install"
+}
